@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhy.dao.LoginDao">
+
+	<select id="checkRegister" parameterType="string" resultType="int">
+		select count(1) from tb_user where username=#{_parameter}
+	</select>
+	
+	<insert id="register" parameterType="com.lhy.entity.User">
+		insert into tb_user set username=#{username},password=#{password},email=#{email},createtime=now(),third_id=#{third_id},status=0
+	</insert>
+	
+	<select id="checkLogin" parameterType="com.lhy.entity.User" resultType="com.lhy.entity.User">
+		select * from tb_user where username=#{username}
+	</select>
+	
+	<select id="checkThirdBind" parameterType="string" resultType="com.lhy.entity.User">
+		select * from tb_user where third_id = #{_parameter}
+	</select>
+	
+	<update id="bindThirdAccount" parameterType="com.lhy.entity.User">
+		update tb_user set third_id=#{third_id} where user_id=#{user_id}
+	</update>
+</mapper>

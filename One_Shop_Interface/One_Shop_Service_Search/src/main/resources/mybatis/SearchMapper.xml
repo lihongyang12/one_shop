@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhy.dao.SearchDao">
+
+	<insert id="splider" parameterType="list">
+		insert into tb_goods(goods_name,goods_price,goods_count,goods_brand_id,goods_type_id,last_modify) values
+		<foreach collection="list" item="goods" separator=",">
+		(#{goods.goods_name},#{goods.goods_price},#{goods.goods_count},#{goods.goods_brand_id},#{goods.goods_type_id},now())
+		</foreach>
+	</insert>
+	
+	<select id="getGoodsTypeList" resultType="com.lhy.entity.GoodsType">
+		select * from tb_goods_type
+	</select>
+	
+	<select id="getBrandListByType" parameterType="int" resultType="com.lhy.entity.GoodsBrand">
+		select * from tb_goods_brand where goods_type_id = #{_parameter}
+	</select> 
+</mapper>

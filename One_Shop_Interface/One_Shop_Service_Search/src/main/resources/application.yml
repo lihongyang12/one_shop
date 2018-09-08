@@ -1,0 +1,38 @@
+server:
+  port: 8083
+  
+db:
+  url: jdbc:mysql://140.143.232.206:3306/day17?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  driver-class-name: com.mysql.jdbc.Driver
+  username: root
+  password: MyNameZheng1!
+  
+spring:
+  dubbo:
+   application:
+     name: One_Shop_Service_Login
+   registry:
+     address: zookeeper://127.0.0.1:2181
+   protocol:
+     name: dubbo
+     port: 20883
+   scan: com.lhy
+  data:
+    solr:
+      host: http://47.94.107.113:8080/solr
+   
+redis:
+  redisHost: 47.94.107.113
+  redisPort: 6379
+  redisPassword: lihongyang123
+  timeout: 10000
+  maxIdle: 300
+  maxActive: 600
+  maxTotal: 1000
+  maxWaitMillis: 1000
+  minEvictableIdleTimeMillis: 300000
+  numTestsPerEvictionRun: 1024
+  timeBetweenEvictionRunsMillis: 30000
+  testOnBorrow: true
+  testWhileIdle: true  
+  

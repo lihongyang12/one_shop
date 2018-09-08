@@ -1,0 +1,15 @@
+server:
+  port: 8091
+  
+spring:
+  dubbo:
+   application:
+     name: One_Shop_Service_Login
+   registry:
+     address: zookeeper://127.0.0.1:2181
+   scan: com.lhy
+
+   
+baidu:
+  api_key: n28Bd8Zn0yZl42aguV87MjqQ
+  secret_key: aaZ7GDQ0fmGBxXtf52ZbNSD1T9V8QTG3
